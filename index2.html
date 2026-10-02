@@ -590,7 +590,7 @@ input[type="range"]{
 Music Guweh
 </h1>
 
-<button class="nav active">
+<button class="nav active" onclick="showHome()">
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 <path d="M3 10.5 12 3l9 7.5"/>
 <path d="M5 9v11h14V9"/>
@@ -778,23 +778,30 @@ value="0.8"
 
 <script>
 
-
-
 const songs = [
-
-{
-    title:"Dunia Yang Nanti",
-    artist:"Raim Laode",
-    audio:"music/dunia yang nanti.mp3",
-    cover:"covers/artworks-4fKdvsh0znrL-0-t500x500.jpg"
-}
-
+    {
+        title: "Dunia Yang Nanti",
+        artist: "Raim Laode",
+        audio: "music/dunia-yang-nanti.mp3",
+        cover: "covers/duniayangnanti1.jpg"
+    },
+    
+        {
+        title: "Shape Of My Heart",
+        artist: "backstreet boys",
+        audio: "music/shape-of-my-heart.mp3",
+        cover: "covers/shapeofmyheart.jpeg"
+    },
+    
+        {
+        title: "Dunia Yang Nanti",
+        artist: "Raim Laode",
+        audio: "music/dunia-yang-nanti.mp3",
+        cover: "covers/duniayangnanti1.jpg"
+    },
 ];
 
-
 let currentSong = 0;
-
-
 
 const audio =
 document.getElementById("audio");
@@ -886,9 +893,6 @@ playerArtist.textContent = songs[0].artist;
     });
 
 }
-
-
-
 
 function playSong(index){
 
@@ -1167,20 +1171,17 @@ function focusSearch(){
 
 }
 
-
-
-
-function showHome(){
-
-    searchInput.value="";
-
-    sectionTitle.textContent=
-    "Lagu Saya";
+function showHome() {
+    searchInput.value = "";
+    sectionTitle.textContent = "Lagu Saya";
 
     displaySongs(songs);
 
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
-
 
 
 
