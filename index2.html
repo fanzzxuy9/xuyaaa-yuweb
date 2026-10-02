@@ -535,11 +535,623 @@ input[type="range"]{
     font-size:30px;
     cursor:pointer;
 }
+.settings-btn {
+    margin-top: 10px;
+    cursor: pointer;
+}
 
+body {
+    background-color: #111;
+    background-image:
+        linear-gradient(
+            rgba(0,0,0,0.45),
+            rgba(0,0,0,0.45)
+        ),
+        var(--custom-background, none);
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Popup */
+.background-settings {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0,0,0,0.7);
+
+    z-index: 9999;
+}
+
+.background-settings.show {
+    display: flex;
+}
+
+.background-box {
+    width: min(90%, 380px);
+    padding: 25px;
+
+    background: #181818;
+    border-radius: 20px;
+
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.background-box h2 {
+    margin-top: 0;
+}
+
+/* Pilih gambar */
+.upload-bg {
+    display: block;
+    padding: 15px;
+
+    background: #292929;
+    border-radius: 12px;
+
+    text-align: center;
+    cursor: pointer;
+}
+
+.upload-bg input {
+    display: none;
+}
+
+/* Tombol */
+.remove-bg,
+.close-bg {
+    width: 100%;
+    padding: 13px;
+
+    margin-top: 10px;
+
+    border: none;
+    border-radius: 12px;
+
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.remove-bg {
+    background: #333;
+    color: white;
+}
+
+.close-bg {
+    background: #1ed760;
+    color: white;
+}
+
+.settings-btn svg {
+    width: 28px !important;
+    height: 28px !important;
+
+    min-width: 28px;
+    max-width: 28px;
+
+    min-height: 28px;
+    max-height: 28px;
+
+    fill: currentColor;
+    flex-shrink: 0;
+}
+.sidebar {
+    width: 150%;
+    max-width: none;
+    box-sizing: border-box;
+    height: 50vh;
+    box-sizing: border-box;
+}
+body {
+    background-color: #0b0b0d !important;
+    background-image:
+        linear-gradient(
+            rgba(5, 5, 8, 0.58),
+            rgba(5, 5, 8, 0.72)
+        ),
+        var(--custom-background, none) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+}
+
+.sidebar {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: auto !important;
+    height: auto !important;
+    padding: 24px 22px 20px !important;
+    background: rgba(10, 10, 12, 0.88) !important;
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.35) !important;
+}
+
+.sidebar h1 {
+    margin: 0 0 22px 0 !important;
+    font-size: 26px !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.8px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.sidebar .nav {
+    width: auto !important;
+    min-height: 52px !important;
+    padding: 13px 18px !important;
+    margin: 0 7px 0 0 !important;
+    border-radius: 14px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    color: #a9a9ae !important;
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease !important;
+}
+
+.sidebar .nav:hover {
+    background: rgba(255,255,255,0.08) !important;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+}
+
+.sidebar .nav.active {
+    background: rgba(255,255,255,0.12) !important;
+    color: #ffffff !important;
+    border-color: rgba(255,255,255,0.06) !important;
+}
+
+.sidebar .nav svg {
+    width: 23px !important;
+    html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: #f5f5f7;
+    overflow-x: hidden;
+}
+
+main {
+    position: relative;
+    z-index: 1;
+}
+
+.sidebar {
+    position: relative;
+    z-index: 20;
+}
+
+.sidebar h1 {
+    text-shadow: 0 4px 20px rgba(0,0,0,0.45);
+}
+
+.sidebar h1::after {
+    content: "";
+    display: block;
+    width: 45px;
+    height: 3px;
+    margin-top: 7px;
+    border-radius: 20px;
+    background: #1ed760;
+    box-shadow: 0 0 14px rgba(30,215,96,0.45);
+}
+
+.sidebar .nav {
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar .nav::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0.08),
+        transparent
+    );
+    opacity: 0;
+    transition: opacity .25s ease;
+}
+
+.sidebar .nav:hover::before,
+.sidebar .nav.active::before {
+    opacity: 1;
+}
+
+.sidebar .nav svg {
+    position: relative;
+    z-index: 1;
+}
+
+.sidebar .nav span {
+    position: relative;
+    z-index: 1;
+}
+
+.search-container {
+    position: relative;
+    z-index: 5;
+}
+
+.search-container input {
+    height: 52px !important;
+    padding: 0 20px !important;
+    font-size: 15px !important;
+    outline: none !important;
+    transition: .25s ease !important;
+}
+
+.search-container input::placeholder {
+    color: #77777f !important;
+}
+
+.search-container input:hover {
+    background: rgba(35,35,38,0.95) !important;
+}
+
+.hero {
+    position: relative;
+    min-height: 190px;
+    padding: 30px !important;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    right: -80px;
+    top: -90px;
+    border-radius: 50%;
+    background: rgba(30,215,96,0.08);
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    left: -70px;
+    bottom: -90px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+.song-grid {
+    margin-top: 25px !important;
+}
+
+.song-card {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+}
+
+.song-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    border: 1px solid transparent;
+    pointer-events: none;
+    transition: .25s ease;
+}
+
+.song-card:hover::after {
+    border-color: rgba(30,215,96,0.18);
+}
+
+.song-card:active {
+    transform: scale(0.97) !important;
+}
+
+.song-card .song-cover {
+    transition: transform .35s ease, filter .35s ease !important;
+}
+
+.song-card:hover .song-cover {
+    transform: scale(1.035);
+    filter: brightness(1.08);
+}
+
+.song-card .song-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.song-card .song-artist {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player {
+    position: fixed !important;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 1000;
+
+    padding: 12px 18px !important;
+}
+
+.player::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(30,215,96,0.45),
+        transparent
+    );
+}
+
+.now-playing {
+    position: relative;
+}
+
+#playerCover {
+    width: 58px !important;
+    height: 58px !important;
+    min-width: 58px !important;
+    min-height: 58px !important;
+    border-radius: 12px !important;
+}
+
+#playerTitle {
+    display: block;
+    max-width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#playerArtist {
+    display: block;
+    max-width: 180px;
+    margin-top: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#playButton {
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+    min-height: 46px !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+}
+
+#playButton svg {
+    width: 21px !important;
+    height: 21px !important;
+    fill: currentColor !important;
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid #1ed760;
+    outline-offset: 3px;
+}
+
+.background-box {
+    animation: popupIn .25s ease;
+}
+
+@keyframes popupIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.upload-bg,
+.remove-bg,
+.close-bg {
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        opacity .2s ease !important;
+}
+
+.upload-bg:active,
+.remove-bg:active,
+.close-bg:active {
+    transform: scale(.97);
+}
+
+@media (max-width: 600px) {
+    .hero {
+        min-height: 160px;
+        padding: 22px !important;
+        border-radius: 22px !important;
+    }
+
+    .song-grid {
+        margin-top: 18px !important;
+    }
+
+    .player {
+        padding: 10px 12px !important;
+    }
+
+    #playerCover {
+        width: 52px !important;
+        height: 52px !important;
+        min-width: 52px !important;
+        min-height: 52px !important;
+    }
+
+    #playerTitle,
+    #playerArtist {
+        max-width: 135px;
+    }
+
+    #playButton {
+        width: 42px !important;
+        height: 42px !important;
+        min-width: 42px !important;
+        min-height: 42px !important;
+    }
+}
+.song-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px !important;
+    background: rgba(24,24,27,0.78) !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25) !important;
+    backdrop-filter: blur(12px);
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease !important;
+}
+
+.song-card::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    top: -100px;
+    right: -80px;
+    border-radius: 50%;
+    background: rgba(30,215,96,0.12);
+    filter: blur(35px);
+    pointer-events: none;
+    transition: .3s ease;
+}
+
+.song-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.04);
+    pointer-events: none;
+}
+
+.song-card:hover {
+    transform: translateY(-7px) scale(1.015) !important;
+    border-color: rgba(30,215,96,0.28) !important;
+    box-shadow:
+        0 18px 40px rgba(0,0,0,0.4),
+        0 0 25px rgba(30,215,96,0.08) !important;
+}
+
+.song-card:hover::before {
+    transform: scale(1.4);
+    background: rgba(30,215,96,0.2);
+}
+
+.song-card .song-cover {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 16px !important;
+    transition: transform .4s ease, filter .4s ease !important;
+}
+
+.song-card:hover .song-cover {
+    transform: scale(1.045);
+    filter: brightness(1.08) saturate(1.08);
+}
+
+.song-card .song-title {
+    position: relative;
+    z-index: 2;
+    margin-top: 14px !important;
+    padding: 0 4px;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+}
+
+.song-card .song-artist {
+    position: relative;
+    z-index: 2;
+    padding: 0 4px 5px;
+    margin-top: 5px !important;
+    font-size: 13px !important;
+    color: #999 !important;
+}
+
+.song-card:active {
+    transform: scale(.96) !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3) !important;
+}
+
+@media (max-width: 600px) {
+    .song-card {
+        border-radius: 17px !important;
+    }
+
+    .song-card .song-cover {
+        border-radius: 14px !important;
+    }
+
+    .song-card .song-title {
+        font-size: 14
 </style>
 </head>
 
 <body>
+    <div id="backgroundSettings" class="background-settings">
+    <div class="background-box">
+
+        <h2>Ubah Background</h2>
+
+        <label class="upload-bg">
+            Pilih gambar dari perangkat
+            <input type="file" id="bgInput" accept="image/*">
+        </label>
+
+        <button id="removeBg" class="remove-bg">
+            Hapus Background
+        </button>
+
+        <button id="closeBgSettings" class="close-bg">
+            Tutup
+        </button>
+
+    </div>
+</div>
 <button class="nav request-btn" onclick="openRequest()">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
          stroke="currentColor" stroke-width="2">
@@ -604,6 +1216,13 @@ Beranda
 <path d="m20 20-4-4"/>
 </svg>
 Cari
+</button>
+<button class="nav settings-btn" onclick="openBackgroundSettings()">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M19.43 12.98c.04-.32.07-.65.07-.98s-.02-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.37-.31-.6-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98L14.5 2.42C14.47 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.5.42L9.12 5.07c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.08-.48 0-.6.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.08.65-.08.98s.03.66.08.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.37.31.6.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.38-2.65c.61-.25 1.17-.58 1.69-.98l2.49 1c.23.08.48 0 .6-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5A3.5 3.5 0 1 1 12 8a3.5 3.5 0 0 1 0 7.5z"/>
+    </svg>
+
+    <span>Pengaturan Background</span>
 </button>
 
 </aside>
@@ -670,7 +1289,40 @@ Lagu Saya
 <div
 id="songGrid"
 class="song-grid"
-></div>
+>
+    <section id="playlistSection" class="playlist-section">
+    <div class="playlist-header">
+        <div>
+            <span class="playlist-label">KOLEKSI KAMU</span>
+            <h2>Playlist</h2>
+        </div>
+        <button id="createPlaylistBtn" class="create-playlist-btn">
+            <span>+</span>
+            Buat Playlist
+        </button>
+    </div>
+
+    <div id="playlistGrid" class="playlist-grid"></div>
+</section>
+
+<div id="playlistModal" class="playlist-modal">
+    <div class="playlist-box">
+        <h2>Buat Playlist</h2>
+        <input id="playlistNameInput" type="text" placeholder="Nama playlist..." maxlength="40">
+        <div class="playlist-actions">
+            <button id="cancelPlaylistBtn">Batal</button>
+            <button id="savePlaylistBtn">Buat</button>
+        </div>
+    </div>
+</div>
+
+<div id="addSongModal" class="playlist-modal">
+    <div class="playlist-box">
+        <h2>Tambah Lagu</h2>
+        <div id="addSongList" class="add-song-list"></div>
+        <button id="closeAddSongBtn" class="close-playlist-btn">Tutup</button>
+    </div>
+</div>
 
 </section>
 
@@ -1239,8 +1891,6 @@ function sendRequest(){
 
     const message =
         `Request Lagu%0A%0ALagu: ${encodeURIComponent(song)}%0AArtis: ${encodeURIComponent(artist || "-")}`;
-
-    // GANTI NOMOR INI DENGAN NOMOR WHATSAPP KAMU
     const phone = "6285702505960";
 
     window.open(
@@ -1248,6 +1898,90 @@ function sendRequest(){
         "_blank"
     );
 
+}
+
+const bgSettings =
+    document.getElementById("backgroundSettings");
+
+const bgInput =
+    document.getElementById("bgInput");
+
+const removeBg =
+    document.getElementById("removeBg");
+
+const closeBgSettings =
+    document.getElementById("closeBgSettings");
+
+
+function openBackgroundSettings() {
+    bgSettings.classList.add("show");
+}
+
+
+closeBgSettings.onclick = function() {
+    bgSettings.classList.remove("show");
+};
+
+
+bgSettings.onclick = function(event) {
+    if (event.target === bgSettings) {
+        bgSettings.classList.remove("show");
+    }
+};
+
+
+bgInput.addEventListener("change", function() {
+
+    const file = this.files[0];
+
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function(event) {
+
+        const image = event.target.result;
+
+        document.body.style.setProperty(
+            "--custom-background",
+            `url("${image}")`
+        );
+
+        localStorage.setItem(
+            "customBackground",
+            image
+        );
+    };
+
+    reader.readAsDataURL(file);
+});
+
+
+removeBg.onclick = function() {
+
+    document.body.style.removeProperty(
+        "--custom-background"
+    );
+
+    localStorage.removeItem(
+        "customBackground"
+    );
+
+    bgInput.value = "";
+};
+
+
+
+
+const savedBackground =
+    localStorage.getItem("customBackground");
+
+if (savedBackground) {
+
+    document.body.style.setProperty(
+        "--custom-background",
+        `url("${savedBackground}")`
+    );
 }
 </script>
 
