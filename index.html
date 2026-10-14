@@ -896,168 +896,210 @@
     min-width: 120px;
     justify-content: center;
   }
+
+  /* ===== Anime Gallery Section ===== */
+  .gallery-section {
+    padding: 12px 0 40px;
+  }
+
+  .gallery-filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 28px;
+  }
+
+  .gallery-chip {
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: var(--frame-bg);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+  }
+  .gallery-chip:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+  .gallery-chip.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 480px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+  }
+
+  .gallery-item {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--frame-bg);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .gallery-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  }
+  [data-theme="dark"] .gallery-item:hover {
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  .gallery-item:hover img {
+    transform: scale(1.08);
+  }
+  .gallery-item-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: flex-end;
+    padding: 12px;
+    pointer-events: none;
+  }
+  .gallery-item:hover .gallery-item-overlay {
+    opacity: 1;
+  }
+  .gallery-item-overlay span {
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    word-break: break-word;
+  }
+
+  .gallery-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
   .social-apps {
     display: flex;
     justify-content: center;
     gap: 25px;
     margin: 30px auto;
     flex-wrap: wrap;
-}
+  }
 
-.social-app {
-    text-decoration: none;
-    color: inherit;
-    text-align: center;
-    transition: transform 0.2s ease;
-}
-
-.social-app:hover {
-    transform: translateY(-6px);
-}
-
-.app-icon {
-    width: 70px;
-    height: 70px;
-    border-radius: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 32px;
-    font-weight: bold;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.social-app span {
-    display: block;
-    margin-top: 8px;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.social-apps {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 35px;
-    margin: 40px auto;
-    flex-wrap: wrap;
-}
-.social-app {
+  .social-app {
     text-decoration: none;
     color: inherit;
     text-align: center;
     width: 110px;
     transition: transform 0.25s ease;
-}
-.social-app:hover {
+  }
+  .social-app:hover {
     transform: translateY(-8px) scale(1.04);
-}
-.app-icon {
+  }
+
+  .app-icon {
     width: 100px;
     height: 100px;
     border-radius: 24px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     position: relative;
-
     font-size: 45px;
     font-weight: bold;
-
-    box-shadow:
-        0 10px 25px rgba(0, 0, 0, 0.35);
-
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
     overflow: hidden;
-}
-.tiktok .app-icon {
-    background: linear-gradient(
-        145deg,
-        #050505,
-        #171717
-    );
+    isolation: isolate;
+  }
 
+  .tiktok .app-icon {
+    background: linear-gradient(145deg, #050505, #171717);
     color: white;
-
     box-shadow:
         0 0 20px rgba(0, 242, 234, 0.35),
         0 0 35px rgba(255, 0, 80, 0.25),
         0 10px 25px rgba(0, 0, 0, 0.4);
-}
-.tiktok-icon {
+  }
+  .tiktok-icon {
     width: 100px;
     height: 100px;
     border-radius: 24px;
     background: #000;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     overflow: hidden;
-
     box-shadow:
         0 0 20px rgba(37, 244, 238, 0.25),
         0 0 30px rgba(254, 44, 85, 0.15);
-}
-
-.tiktok-icon svg {
+  }
+  .tiktok-icon svg {
     width: 62px;
     height: 62px;
     display: block;
-}
-.youtube .app-icon {
-    background: linear-gradient(
-        145deg,
-        #ff3030,
-        #e60000
-    );
+  }
 
+  .youtube .app-icon {
+    background: linear-gradient(145deg, #ff3030, #e60000);
     color: white;
-
     box-shadow:
         0 0 25px rgba(255, 0, 0, 0.4),
         0 10px 25px rgba(0, 0, 0, 0.4);
-}
+  }
 
-.whatsapp .app-icon {
-    background: linear-gradient(
-        145deg,
-        #25D366,
-        #16b957
-    );
-
-    color: white;
-
+  .whatsapp-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #25D366;
     box-shadow:
-        0 0 25px rgba(37, 211, 102, 0.55),
-        0 0 45px rgba(37, 211, 102, 0.25),
-        0 10px 25px rgba(0, 0, 0, 0.4);
-}
-
-.social-app span {
+        0 0 20px rgba(37, 211, 102, 0.45),
+        0 0 40px rgba(37, 211, 102, 0.20);
+    overflow: hidden;
+  }
+  .whatsapp-icon svg {
+    width: 64px;
+    height: 64px;
     display: block;
+  }
 
+  .social-app span {
+    display: block;
     margin-top: 12px;
-
     font-size: 16px;
     font-weight: 700;
-
     letter-spacing: 0.2px;
-}
-.app-icon::marker {
-    display: none;
-}
+    color: white !important;
+  }
 
-.app-icon {
-    isolation: isolate;
-}
-
-.app-icon::selection {
-    background: transparent;
-}
-.slide.empty {
+  .slide.empty {
     background:
         radial-gradient(
             circle at 50% 50%,
@@ -1065,54 +1107,191 @@
             transparent 45%
         ),
         #080d18;
-}
-.whatsapp-icon svg {
-    width: 62px;
-    height: 62px;
+    border-radius: 16px;
+  }
 
+  .slide h2,
+  .slide p {
+    color: white !important;
+  }
+
+  /* ===== Background Customizer ===== */
+  .bg-fab {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    z-index: 500;
+    box-shadow: 0 10px 26px rgba(184, 68, 106, .45);
+    transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+  }
+  .bg-fab:hover {
+    transform: translateY(-3px) scale(1.06);
+    background: var(--accent-dark);
+    box-shadow: 0 14px 32px rgba(184, 68, 106, .55);
+  }
+  .bg-fab:active { transform: scale(.95); }
+  .bg-fab svg { width: 24px; height: 24px; }
+
+  .bg-panel {
+    position: fixed;
+    right: 20px;
+    bottom: 88px;
+    width: min(330px, calc(100vw - 40px));
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 18px;
+    z-index: 501;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .28);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(14px) scale(.96);
+    transform-origin: bottom right;
+    transition: opacity .25s ease, transform .25s cubic-bezier(.2,.7,.2,1), visibility .25s ease;
+  }
+  .bg-panel.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+
+  .bg-panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .bg-panel-head strong {
+    font-size: .95rem;
+    letter-spacing: -.01em;
+    color: var(--ink);
+  }
+  .bg-close {
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    transition: background .2s ease, color .2s ease;
+  }
+  .bg-close:hover { background: var(--line); color: var(--ink); }
+
+  .bg-preview {
+    height: 110px;
+    border-radius: 12px;
+    border: 1px dashed var(--line);
+    background: var(--frame-bg) center/cover no-repeat;
+    display: grid;
+    place-items: center;
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: background .3s ease;
+  }
+  .bg-preview span {
+    font-size: .78rem;
+    color: var(--muted);
+    background: var(--card-bg);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+
+  .bg-label {
     display: block;
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
 
-    flex-shrink: 0;
-    .whatsapp-icon {
-    width: 100px;
-    height: 100px;
-    border-radius: 24px;
-
+  .bg-file {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px dashed var(--line);
+    background: var(--frame-bg);
+    color: var(--ink);
+    font-size: .85rem;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 16px;
+    transition: border-color .2s ease, color .2s ease, background .2s ease;
+    word-break: break-all;
+  }
+  .bg-file:hover { border-color: var(--accent); color: var(--accent); }
 
-    background: #25D366;
+  .bg-url-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .bg-url-row input {
+    flex: 1;
+    min-width: 0;
+    font: inherit;
+    font-size: .85rem;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--ink);
+    outline: none;
+    transition: border-color .2s ease, background .4s ease;
+  }
+  .bg-url-row input:focus { border-color: var(--accent); }
+  .bg-url-row .btn {
+    padding: 10px 16px;
+    font-size: .85rem;
+    border-radius: 10px;
+  }
 
-    box-shadow:
-        0 0 20px rgba(37, 211, 102, 0.45),
-        0 0 40px rgba(37, 211, 102, 0.20);
+  .bg-range {
+    width: 100%;
+    accent-color: var(--accent);
+    margin-bottom: 16px;
+    cursor: pointer;
+  }
 
-    overflow: hidden;
-}
+  .bg-actions { display: flex; gap: 8px; }
+  .bg-actions .btn {
+    flex: 1;
+    justify-content: center;
+    padding: 11px 14px;
+    font-size: .85rem;
+  }
 
-.whatsapp-icon svg {
-    width: 64px;
-    height: 64px;
-    display: block;
-}
-.social-app span {
-    color: white !important;
-}
+  .bg-status {
+    font-size: .75rem;
+    margin-top: 10px;
+    min-height: 1.1em;
+    color: var(--accent);
+    text-align: center;
+    font-weight: 500;
+  }
 
-.slide h2,
-.slide p {
-    color: white !important;
-}
-.social-app span {
-    color: white !important;
-}
-
-.slide h2,
-.slide p {
-    color: white !important;
-}
-}
+  @media (max-width: 480px) {
+    .bg-fab { right: 14px; bottom: 14px; width: 50px; height: 50px; }
+    .bg-panel { right: 14px; bottom: 76px; }
+  }
 </style>
 </head>
 <body>
@@ -1135,12 +1314,52 @@
       <div class="step" data-step="2"></div>
       <div class="step" data-step="3"></div>
       <div class="step" data-step="4"></div>
+      <div class="step" data-step="5"></div>
     </div>
     <button id="themeToggle" class="theme-toggle" aria-label="Ganti tema"></button>
   </div>
 </header>
 
 <main id="app"></main>
+
+<!-- ===== Background Customizer ===== -->
+<button class="bg-fab" id="bgFab" aria-label="Ganti background" title="Ganti background">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+    <polyline points="21 15 16 10 5 21"></polyline>
+  </svg>
+</button>
+
+<div class="bg-panel" id="bgPanel">
+  <div class="bg-panel-head">
+    <strong>Ganti Background</strong>
+    <button class="bg-close" id="bgClose" aria-label="Tutup">✕</button>
+  </div>
+
+  <div class="bg-preview" id="bgPreview"><span>Belum ada background</span></div>
+
+  <label class="bg-label">Upload gambar</label>
+  <label class="bg-file">
+    <input type="file" id="bgFile" accept="image/*" hidden>
+    <span id="bgFileName">Pilih gambar dari galeri…</span>
+  </label>
+
+  <label class="bg-label">Atau tempel URL gambar</label>
+  <div class="bg-url-row">
+    <input type="url" id="bgUrl" placeholder="https://contoh.com/gambar.jpg">
+    <button class="btn accent" id="bgUrlApply">Pakai</button>
+  </div>
+
+  <label class="bg-label">Gelapkan latar <span id="bgDimVal">45%</span></label>
+  <input type="range" id="bgDim" class="bg-range" min="0" max="85" step="5" value="45">
+
+  <div class="bg-actions">
+    <button class="btn ghost" id="bgRemove">Hapus Background</button>
+  </div>
+
+  <div class="bg-status" id="bgStatus"></div>
+</div>
 
 <script>
   const themeToggle = document.getElementById('themeToggle');
@@ -1170,29 +1389,38 @@
     setTheme(currentTheme === 'dark' ? 'light' : 'dark');
   });
 
-  async function fetchJikan(endpoint) {
-    const url = 'https://api.jikan.moe/v4' + endpoint;
+  async function fetchAniList(query, variables = {}) {
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 12000);
-
+    const timer = setTimeout(() => controller.abort(), 15000);
     try {
-      const res = await fetch(url, { signal: controller.signal });
-      clearTimeout(timer);
-
+      const res = await fetch('https://graphql.anilist.co', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ query, variables }),
+        signal: controller.signal
+      });
       if (!res.ok) {
-        if (res.status === 429) throw new Error('Server API sibuk. Tunggu beberapa detik lalu muat ulang halaman.');
-        throw new Error('Gagal mengambil data. Coba muat ulang halaman.');
+        if (res.status === 429) throw new Error('API sedang sibuk. Tunggu sebentar lalu coba lagi.');
+        throw new Error('Gagal mengambil data anime (HTTP ' + res.status + ').');
       }
-
-      return await res.json();
+      const json = await res.json();
+      if (json.errors && json.errors.length) throw new Error('API anime sedang bermasalah. Coba lagi nanti.');
+      return json.data;
     } catch (err) {
-      clearTimeout(timer);
-      if (err.name === 'AbortError') throw new Error('Koneksi timeout. Cek internet kamu lalu muat ulang.');
+      if (err.name === 'AbortError') throw new Error('Koneksi timeout. Cek internet lalu coba lagi.');
       throw err;
+    } finally {
+      clearTimeout(timer);
     }
   }
 
-  const slides = { 1: renderSlide1, 2: renderSlide2, 3: renderSlide3, 4: renderSlideBrowse };
+  const slides = {
+    1: renderSlide1,
+    2: renderSlide2,
+    3: renderSlide3,
+    4: renderSlideBrowse,
+    5: renderSlideGallery
+  };
 
   function setStep(n) {
     document.querySelectorAll('.step').forEach(el => {
@@ -1206,6 +1434,9 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (n === 4) {
       setTimeout(loadBrowseData, 100);
+    }
+    if (n === 5) {
+      setTimeout(() => loadGallery('waifu'), 100);
     }
   }
 
@@ -1235,13 +1466,13 @@
             <div class="hero-meta">
               <span>01</span>
               <span class="sep"></span>
-              <span>4 halaman</span>
+              <span>5 halaman</span>
             </div>
           </div>
         </div>
 
         <div class="hero-visual">
-          <div class="hero-counter">01 / 04</div>
+          <div class="hero-counter">01 / 05</div>
           <div class="frame">
             <img src="https://davedalessiowrites.wordpress.com/wp-content/uploads/2026/03/kaoruko.webp" alt="Preview">
           </div>
@@ -1334,10 +1565,9 @@
         <div class="app-icon">▶</div>
         <span style="color:white;">YouTube Admin xuya</span>
     </a>
-    
+
     <a href="https://wa.me/6285702505960" target="_blank" class="social-app whatsapp">
         <div class="app-icon whatsapp-icon">
-    <div class="app-icon whatsapp-icon">
     <svg viewBox="0 0 48 48">
         <path
             d="M24 5.5
@@ -1376,15 +1606,13 @@
         />
     </svg>
 </div>
-</div>  
 <span style="color:white;">WhatsApp Admin xuyaa</span>
 </a>
 
 </div>
-        <p>Nanti diisi lagi. Sementara lihat anime dulu yuk.</p>
         <div class="btn-row">
           <button class="btn accent" onclick="go(2)">← Ke profil Waguri</button>
-          <button class="btn accent" onclick="go(4)">Lihat Anime musim ini →</button>
+          <button class="btn accent" onclick="go(4)">Lihat Anime →</button>
         </div>
       </section>
     `;
@@ -1410,48 +1638,205 @@
 
         <div class="slide-nav">
           <button class="btn ghost" onclick="go(3)">← Balik</button>
+          <button class="btn accent" onclick="go(5)">Galeri Anime →</button>
         </div>
       </section>
     `;
   }
 
+  function renderSlideGallery() {
+    return `
+      <section class="slide gallery-section">
+        <div class="browse-header">
+          <h2>Galeri Anime Random</h2>
+          <p>Kumpulan gambar anime acak. Klik kategori untuk ganti jenis, atau muat lebih banyak.</p>
+        </div>
+
+        <div class="gallery-filters" id="galleryFilters">
+          <span class="gallery-chip active" onclick="loadGallery('waifu', this)">👧 Waifu</span>
+          <span class="gallery-chip" onclick="loadGallery('neko', this)">🐱 Neko</span>
+          <span class="gallery-chip" onclick="loadGallery('husbando', this)">👦 Husbando</span>
+          <span class="gallery-chip" onclick="loadGallery('kitsune', this)">🦊 Kitsune</span>
+          <span class="gallery-chip" onclick="loadGallery('happy', this)">😊 Happy</span>
+          <span class="gallery-chip" onclick="loadGallery('wink', this)">😉 Wink</span>
+          <span class="gallery-chip" onclick="loadGallery('dance', this)">💃 Dance</span>
+          <span class="gallery-chip" onclick="loadGallery('smug', this)">😏 Smug</span>
+          <span class="gallery-chip" onclick="loadGallery('blush', this)">😳 Blush</span>
+          <span class="gallery-chip" onclick="loadGallery('awoo', this)">🐺 Awoo</span>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+          <div class="loading-spinner" style="grid-column: 1/-1;">
+            <div class="spinner"></div>
+            <span>Lagi ambil gambar anime random...</span>
+          </div>
+        </div>
+
+        <div class="gallery-actions">
+          <button class="btn accent" onclick="loadMoreGallery()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"></polyline><polyline points="23 20 23 14 17 14"></polyline><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path></svg>
+            Muat Lebih Banyak
+          </button>
+        </div>
+
+        <div class="slide-nav">
+          <button class="btn ghost" onclick="go(4)">← Kembali ke Anime</button>
+        </div>
+      </section>
+    `;
+  }
+
+
+  let currentGalleryCategory = 'waifu';
+
+  async function fetchNekosBest(category, amount = 12) {
+    const url = `https://nekos.best/api/v2/${category}?amount=${amount}`;
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 15000);
+
+    try {
+      const res = await fetch(url, { signal: controller.signal });
+      clearTimeout(timer);
+
+      if (!res.ok) {
+        if (res.status === 404) throw new Error('Kategori tidak tersedia.');
+        throw new Error('Gagal mengambil gambar (HTTP ' + res.status + ').');
+      }
+
+      const data = await res.json();
+
+      if (!data.results || data.results.length === 0) {
+        throw new Error('Tidak ada gambar untuk kategori ini.');
+      }
+
+      return data.results.map(item => ({
+        url: item.url,
+        artist: item.artist_name || '',
+        source: item.source_url || ''
+      }));
+    } catch (err) {
+      clearTimeout(timer);
+      if (err.name === 'AbortError') throw new Error('Timeout. Cek internet kamu lalu coba lagi.');
+      throw err;
+    }
+  }
+
+  async function loadGallery(category, chipEl) {
+    if (chipEl) {
+      document.querySelectorAll('.gallery-chip').forEach(c => c.classList.remove('active'));
+      chipEl.classList.add('active');
+    }
+    currentGalleryCategory = category;
+
+    const grid = document.getElementById('galleryGrid');
+    if (!grid) return;
+
+    grid.innerHTML = `
+      <div class="loading-spinner" style="grid-column: 1/-1;">
+        <div class="spinner"></div>
+        <span>Lagi ambil gambar anime random...</span>
+      </div>
+    `;
+
+    try {
+      const images = await fetchNekosBest(category, 12);
+
+      grid.innerHTML = '';
+      images.forEach((img, idx) => {
+        const item = document.createElement('div');
+        item.className = 'gallery-item';
+        const label = img.artist ? img.artist : `${category} #${idx + 1}`;
+        item.innerHTML = `
+          <img src="${img.url}" alt="anime ${category}" loading="lazy" referrerpolicy="no-referrer">
+          <div class="gallery-item-overlay"><span>${label}</span></div>
+        `;
+        grid.appendChild(item);
+      });
+    } catch (err) {
+      grid.innerHTML = `
+        <div class="error-box" style="grid-column:1/-1;">
+          <p>${err.message || 'Gagal mengambil gambar.'}</p>
+          <button class="btn ghost" onclick="loadGallery('${category}')">Coba Lagi</button>
+        </div>
+      `;
+    }
+  }
+
+  async function loadMoreGallery() {
+    const grid = document.getElementById('galleryGrid');
+    if (!grid) return;
+
+    const loader = document.createElement('div');
+    loader.className = 'loading-spinner';
+    loader.style.gridColumn = '1/-1';
+    loader.innerHTML = '<div class="spinner"></div><span>Nambah gambar...</span>';
+    grid.appendChild(loader);
+
+    try {
+      const images = await fetchNekosBest(currentGalleryCategory, 8);
+      loader.remove();
+
+      if (images.length === 0) return;
+
+      images.forEach((img) => {
+        const item = document.createElement('div');
+        item.className = 'gallery-item';
+        const label = img.artist ? img.artist : currentGalleryCategory;
+        item.innerHTML = `
+          <img src="${img.url}" alt="anime ${currentGalleryCategory}" loading="lazy" referrerpolicy="no-referrer">
+          <div class="gallery-item-overlay"><span>${label}</span></div>
+        `;
+        grid.appendChild(item);
+      });
+    } catch (err) {
+      loader.remove();
+      const errDiv = document.createElement('div');
+      errDiv.className = 'error-box';
+      errDiv.style.gridColumn = '1/-1';
+      errDiv.innerHTML = `<p>${err.message || 'Gagal nambah gambar.'}</p>`;
+      grid.appendChild(errDiv);
+    }
+  }
+
   async function loadBrowseData() {
     const seasonDiv = document.getElementById('seasonResults');
     if (!seasonDiv) return;
-
     try {
-      const data = await fetchJikan('/seasons/now?limit=24');
-      if (!data.data || data.data.length === 0) {
-        seasonDiv.innerHTML = '<div class="error-box"><p>Data anime musim ini tidak tersedia.</p></div>';
+      const query = `query ($page: Int, $perPage: Int) {
+        Page(page: $page, perPage: $perPage) {
+          media(type: ANIME, sort: TRENDING_DESC, isAdult: false) {
+            id title { romaji english native } coverImage { large medium }
+            averageScore episodes format seasonYear status startDate { year }
+          }
+        }
+      }`;
+      const data = await fetchAniList(query, { page: 1, perPage: 24 });
+      const animeList = data && data.Page && data.Page.media ? data.Page.media : [];
+      if (!animeList.length) {
+        seasonDiv.innerHTML = '<div class="error-box"><p>Data anime tidak tersedia saat ini.</p></div>';
         return;
       }
-
-      let html = '<div class="anime-grid">';
-      for (let i = 0; i < data.data.length; i++) {
-        html += renderAnimeCard(data.data[i]);
-      }
-      html += '</div>';
-      seasonDiv.innerHTML = html;
+      seasonDiv.innerHTML = '<div class="anime-grid">' + animeList.map(renderAnimeCard).join('') + '</div>';
     } catch (err) {
       seasonDiv.innerHTML = '<div class="error-box"><p>' + err.message + '</p><button class="btn ghost" onclick="loadBrowseData()">Muat Ulang</button></div>';
     }
   }
 
   function renderAnimeCard(anime) {
-    const img = (anime.images && anime.images.jpg && anime.images.jpg.image_url) || (anime.images && anime.images.webp && anime.images.webp.image_url) || '';
-    const score = anime.score ? anime.score.toFixed(1) : 'N/A';
-    const type = anime.type || '?';
+    const img = anime.coverImage && (anime.coverImage.large || anime.coverImage.medium) || '';
+    const score = anime.averageScore ? (anime.averageScore / 10).toFixed(1) : 'N/A';
+    const type = anime.format || 'Anime';
     const episodes = anime.episodes ? anime.episodes + ' eps' : '';
-    const year = anime.year || (anime.aired && anime.aired.prop && anime.aired.prop.from && anime.aired.prop.from.year) || '';
-
+    const year = anime.seasonYear || (anime.startDate && anime.startDate.year) || '';
+    const title = (anime.title && (anime.title.english || anime.title.romaji || anime.title.native)) || 'Tanpa judul';
     return `
-      <div class="anime-card" onclick="showAnimeDetail(${anime.mal_id})">
+      <div class="anime-card" onclick="showAnimeDetail(${anime.id})">
         <div class="anime-card-img">
-          <img src="${img}" alt="${anime.title}" loading="lazy">
+          <img src="${img}" alt="${title.replace(/"/g, '&quot;')}" loading="lazy">
           <div class="anime-card-score">★ ${score}</div>
         </div>
         <div class="anime-card-body">
-          <div class="anime-card-title">${anime.title}</div>
+          <div class="anime-card-title">${title}</div>
           <div class="anime-card-meta">
             <span>${type}</span>
             ${episodes ? '<span>' + episodes + '</span>' : ''}
@@ -1466,118 +1851,79 @@
     const app = document.getElementById('app');
     app.innerHTML = `
       <section class="slide">
-        <button class="detail-back" onclick="go(4)">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-          Balik ke daftar
-        </button>
+        <button class="detail-back" onclick="go(4)">← Balik ke daftar</button>
         <div class="loading-spinner"><div class="spinner"></div><span>Lagi ambil detail anime...</span></div>
-      </section>
-    `;
-
+      </section>`;
     try {
-      const data = await fetchJikan('/anime/' + id + '/full');
-      const a = data.data;
-
-      const img = (a.images && a.images.jpg && a.images.jpg.large_image_url) || (a.images && a.images.webp && a.images.webp.large_image_url) || (a.images && a.images.jpg && a.images.jpg.image_url) || '';
-      const score = a.score ? a.score.toFixed(1) : 'N/A';
-      const rank = a.rank ? '#' + a.rank : '-';
-      const popularity = a.popularity ? '#' + a.popularity : '-';
-      const members = a.members ? a.members.toLocaleString('id-ID') : '-';
-      const favorites = a.favorites ? a.favorites.toLocaleString('id-ID') : '-';
-      const status = a.status || '-';
-      const aired = (a.aired && a.aired.string) || '-';
-      const duration = a.duration || '-';
-      const source = a.source || '-';
-      const studio = (a.studios && a.studios.length > 0) ? a.studios.map(function(s){return s.name;}).join(', ') : '-';
-      const genres = (a.genres && a.genres.length > 0) ? a.genres.map(function(g){return g.name;}) : [];
-      const themes = (a.themes && a.themes.length > 0) ? a.themes.map(function(t){return t.name;}) : [];
-      const synopsis = a.synopsis || 'Sinopsis belum tersedia.';
-      const trailer = (a.trailer && a.trailer.embed_url) || '';
-      const titleJp = a.title_japanese || '';
-
+      const query = `query ($id: Int) {
+        Media(id: $id, type: ANIME) {
+          id title { romaji english native } coverImage { extraLarge large }
+          averageScore meanScore popularity favourites episodes format status
+          seasonYear startDate { year month day } endDate { year month day }
+          duration source description(asHtml: false) genres studios { nodes { name } }
+          trailer { id site } rankings { rank type context }
+        }
+      }`;
+      const result = await fetchAniList(query, { id: Number(id) });
+      const a = result && result.Media;
+      if (!a) throw new Error('Detail anime tidak ditemukan.');
+      const title = (a.title && (a.title.english || a.title.romaji || a.title.native)) || 'Tanpa judul';
+      const titleJp = (a.title && a.title.native && a.title.native !== title) ? a.title.native : '';
+      const img = a.coverImage && (a.coverImage.extraLarge || a.coverImage.large) || '';
+      const score = a.averageScore ? (a.averageScore / 10).toFixed(1) : 'N/A';
+      const rankEntry = (a.rankings || []).find(r => r.type === 'RATED' && r.context === 'all time') || (a.rankings || [])[0];
+      const rank = rankEntry ? '#' + rankEntry.rank : '-';
+      const popularity = a.popularity ? '#' + a.popularity.toLocaleString('id-ID') : '-';
+      const members = a.popularity ? a.popularity.toLocaleString('id-ID') : '-';
+      const favorites = a.favourites ? a.favourites.toLocaleString('id-ID') : '-';
+      const status = (a.status || '-').replace(/_/g, ' ');
+      const fmtDate = d => d && d.year ? [d.year, d.month, d.day].filter(Boolean).join('-') : '';
+      const aired = [fmtDate(a.startDate), fmtDate(a.endDate)].filter(Boolean).join(' sampai ') || '-';
+      const duration = a.duration ? a.duration + ' menit/episode' : '-';
+      const source = a.source ? a.source.replace(/_/g, ' ') : '-';
+      const studio = a.studios && a.studios.nodes && a.studios.nodes.length ? a.studios.nodes.map(x => x.name).join(', ') : '-';
+      const genres = a.genres || [];
+      const synopsis = a.description || 'Sinopsis belum tersedia.';
+      const trailer = a.trailer && a.trailer.site === 'youtube' && a.trailer.id ? 'https://www.youtube.com/embed/' + a.trailer.id : '';
+      const year = a.seasonYear || (a.startDate && a.startDate.year) || '';
       let genresHtml = '';
-      if (genres.length > 0) {
-        genresHtml = '<h3 style="font-size:0.95rem;font-weight:600;margin-bottom:12px;">Genre</h3><div class="genre-list">';
-        for (let i = 0; i < genres.length; i++) genresHtml += '<span class="genre-tag">' + genres[i] + '</span>';
-        genresHtml += '</div>';
-      }
-
-      let themesHtml = '';
-      if (themes.length > 0) {
-        themesHtml = '<h3 style="font-size:0.95rem;font-weight:600;margin-bottom:12px;">Theme</h3><div class="genre-list">';
-        for (let i = 0; i < themes.length; i++) themesHtml += '<span class="genre-tag">' + themes[i] + '</span>';
-        themesHtml += '</div>';
-      }
-
-      let trailerHtml = '';
-      if (trailer) {
-        trailerHtml = '<div class="detail-trailer"><h3 style="font-size:0.95rem;font-weight:600;margin-bottom:12px;">Trailer</h3><iframe src="' + trailer + '" allowfullscreen></iframe></div>';
-      }
-
+      if (genres.length) genresHtml = '<h3 style="font-size:0.95rem;font-weight:600;margin-bottom:12px;">Genre</h3><div class="genre-list">' + genres.map(g => '<span class="genre-tag">' + g + '</span>').join('') + '</div>';
+      let trailerHtml = trailer ? '<div class="detail-trailer"><h3 style="font-size:0.95rem;font-weight:600;margin-bottom:12px;">Trailer</h3><iframe src="' + trailer + '" allowfullscreen></iframe></div>' : '';
+      const esc = value => String(value == null ? '' : value).replace(/[&<>"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
       app.innerHTML = `
         <section class="slide">
-          <button class="detail-back" onclick="go(4)">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-            Balik ke daftar
-          </button>
-
+          <button class="detail-back" onclick="go(4)">← Balik ke daftar</button>
           <div class="detail-layout">
-            <div class="detail-poster">
-              <img src="${img}" alt="${a.title}">
-            </div>
-
+            <div class="detail-poster"><img src="${img}" alt="${esc(title)}"></div>
             <div class="detail-info">
-              <h1>${a.title}</h1>
-              ${titleJp ? '<div class="detail-jp-title">' + titleJp + '</div>' : ''}
-
+              <h1>${esc(title)}</h1>
+              ${titleJp ? '<div class="detail-jp-title">' + esc(titleJp) + '</div>' : ''}
               <div class="detail-badges">
                 <span class="badge score">★ ${score}</span>
-                ${a.type ? '<span class="badge type-badge">' + a.type + '</span>' : ''}
+                ${a.format ? '<span class="badge type-badge">' + esc(a.format) + '</span>' : ''}
                 ${a.episodes ? '<span class="badge">' + a.episodes + ' Episode</span>' : ''}
-                ${a.year ? '<span class="badge">' + a.year + '</span>' : ''}
-                <span class="badge">${status}</span>
+                ${year ? '<span class="badge">' + year + '</span>' : ''}
+                <span class="badge">${esc(status)}</span>
               </div>
-
-              <div class="detail-synopsis">${synopsis}</div>
-
+              <div class="detail-synopsis">${esc(synopsis).replace(/\n/g, '<br>')}</div>
               <div class="detail-grid">
                 <div class="detail-item"><div class="detail-item-label">Rank</div><div class="detail-item-value">${rank}</div></div>
                 <div class="detail-item"><div class="detail-item-label">Popularitas</div><div class="detail-item-value">${popularity}</div></div>
-                <div class="detail-item"><div class="detail-item-label">Members</div><div class="detail-item-value">${members}</div></div>
+                <div class="detail-item"><div class="detail-item-label">Popularity</div><div class="detail-item-value">${members}</div></div>
                 <div class="detail-item"><div class="detail-item-label">Favorites</div><div class="detail-item-value">${favorites}</div></div>
-                <div class="detail-item"><div class="detail-item-label">Tayang</div><div class="detail-item-value">${aired}</div></div>
-                <div class="detail-item"><div class="detail-item-label">Durasi</div><div class="detail-item-value">${duration}</div></div>
-                <div class="detail-item"><div class="detail-item-label">Studio</div><div class="detail-item-value">${studio}</div></div>
-                <div class="detail-item"><div class="detail-item-label">Sumber</div><div class="detail-item-value">${source}</div></div>
+                <div class="detail-item"><div class="detail-item-label">Tayang</div><div class="detail-item-value">${esc(aired)}</div></div>
+                <div class="detail-item"><div class="detail-item-label">Durasi</div><div class="detail-item-value">${esc(duration)}</div></div>
+                <div class="detail-item"><div class="detail-item-label">Studio</div><div class="detail-item-value">${esc(studio)}</div></div>
+                <div class="detail-item"><div class="detail-item-label">Sumber</div><div class="detail-item-value">${esc(source)}</div></div>
               </div>
-
               ${genresHtml}
-              ${themesHtml}
               ${trailerHtml}
             </div>
           </div>
-
-          <div class="slide-nav" style="margin-top:48px;">
-            <button class="btn accent" onclick="go(4)">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-              Balik ke Daftar
-            </button>
-          </div>
-        </section>
-      `;
+          <div class="slide-nav" style="margin-top:48px;"><button class="btn accent" onclick="go(4)">← Balik ke Daftar</button></div>
+        </section>`;
     } catch (err) {
-      app.innerHTML = `
-        <section class="slide">
-          <button class="detail-back" onclick="go(4)">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-            Balik ke daftar
-          </button>
-          <div class="error-box">
-            <p>${err.message}</p>
-            <button class="btn ghost" onclick="showAnimeDetail(${id})">Coba Lagi</button>
-          </div>
-        </section>
-      `;
+      app.innerHTML = `<section class="slide"><button class="detail-back" onclick="go(4)">← Balik ke daftar</button><div class="error-box"><p>${err.message}</p><button class="btn ghost" onclick="showAnimeDetail(${id})">Coba Lagi</button></div></section>`;
     }
   }
 
@@ -1626,6 +1972,201 @@
     document.body.classList.remove('no-scroll');
     setTimeout(() => splash.remove(), 900);
   }
+
+  /* ===== Background Customizer ===== */
+  const BG_IMG_KEY = 'xuyaa_bg_image';
+  const BG_DIM_KEY = 'xuyaa_bg_dim';
+
+  const bgFab      = document.getElementById('bgFab');
+  const bgPanel    = document.getElementById('bgPanel');
+  const bgClose    = document.getElementById('bgClose');
+  const bgFile     = document.getElementById('bgFile');
+  const bgFileName = document.getElementById('bgFileName');
+  const bgUrl      = document.getElementById('bgUrl');
+  const bgUrlApply = document.getElementById('bgUrlApply');
+  const bgDim      = document.getElementById('bgDim');
+  const bgDimVal   = document.getElementById('bgDimVal');
+  const bgRemove   = document.getElementById('bgRemove');
+  const bgPreview  = document.getElementById('bgPreview');
+  const bgStatus   = document.getElementById('bgStatus');
+
+  let bgImageValue = null;
+  let bgDimValue = 45;
+
+  function safeCssUrl(url) {
+    return 'url("' + String(url).replace(/"/g, '%22').replace(/[\n\r]/g, '') + '")';
+  }
+
+  function renderBackground() {
+    if (bgImageValue) {
+      const a = (bgDimValue / 100).toFixed(2);
+
+      document.body.style.backgroundImage =
+        'linear-gradient(rgba(0,0,0,' + a + '), rgba(0,0,0,' + a + ')), ' + safeCssUrl(bgImageValue);
+      document.body.style.backgroundSize = 'cover, cover';
+      document.body.style.backgroundPosition = 'center center, center center';
+      document.body.style.backgroundRepeat = 'no-repeat, no-repeat';
+      document.body.style.backgroundAttachment = 'fixed, fixed';
+
+      bgPreview.style.backgroundImage = safeCssUrl(bgImageValue);
+      bgPreview.innerHTML = '';
+    } else {
+      document.body.style.backgroundImage = '';
+      document.body.style.backgroundSize = '';
+      document.body.style.backgroundPosition = '';
+      document.body.style.backgroundRepeat = '';
+      document.body.style.backgroundAttachment = '';
+
+      bgPreview.style.backgroundImage = '';
+      bgPreview.innerHTML = '<span>Belum ada background</span>';
+    }
+  }
+
+  function saveBackground() {
+    try {
+      if (bgImageValue) {
+        localStorage.setItem(BG_IMG_KEY, bgImageValue);
+      } else {
+        localStorage.removeItem(BG_IMG_KEY);
+      }
+      localStorage.setItem(BG_DIM_KEY, String(bgDimValue));
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function setBgStatus(msg) {
+    bgStatus.textContent = msg || '';
+    if (msg) {
+      setTimeout(() => {
+        if (bgStatus.textContent === msg) bgStatus.textContent = '';
+      }, 2600);
+    }
+  }
+
+  function fileToDataUrl(file, maxW) {
+    maxW = maxW || 1920;
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const img = new Image();
+        img.onload = () => {
+          let w = img.naturalWidth;
+          let h = img.naturalHeight;
+          if (w > maxW) {
+            h = Math.round(h * maxW / w);
+            w = maxW;
+          }
+          const canvas = document.createElement('canvas');
+          canvas.width = w;
+          canvas.height = h;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, w, h);
+          try {
+            resolve(canvas.toDataURL('image/jpeg', 0.85));
+          } catch (e) {
+            resolve(reader.result);
+          }
+        };
+        img.onerror = () => reject(new Error('Gambar tidak bisa dibaca.'));
+        img.src = reader.result;
+      };
+      reader.onerror = () => reject(new Error('Gagal membaca file.'));
+      reader.readAsDataURL(file);
+    });
+  }
+
+  bgFile.addEventListener('change', async () => {
+    const file = bgFile.files && bgFile.files[0];
+    if (!file) return;
+
+    if (!file.type.startsWith('image/')) {
+      setBgStatus('File harus berupa gambar.');
+      bgFile.value = '';
+      return;
+    }
+
+    bgFileName.textContent = 'Memproses gambar…';
+    try {
+      const dataUrl = await fileToDataUrl(file, 1920);
+      bgImageValue = dataUrl;
+      bgFileName.textContent = file.name;
+      renderBackground();
+      const ok = saveBackground();
+      setBgStatus(ok ? 'Background diterapkan ✓' : 'Diterapkan (gagal disimpan permanen)');
+    } catch (err) {
+      bgFileName.textContent = 'Pilih gambar dari galeri…';
+      setBgStatus(err.message || 'Gagal memuat gambar.');
+    }
+    bgFile.value = '';
+  });
+
+  bgUrlApply.addEventListener('click', () => {
+    const url = bgUrl.value.trim();
+    if (!url) {
+      setBgStatus('Masukkan URL gambar dulu.');
+      return;
+    }
+
+    setBgStatus('Memuat gambar…');
+    const test = new Image();
+    test.onload = () => {
+      bgImageValue = url;
+      renderBackground();
+      const ok = saveBackground();
+      setBgStatus(ok ? 'Background diterapkan ✓' : 'Diterapkan (gagal disimpan permanen)');
+    };
+    test.onerror = () => setBgStatus('Gambar tidak bisa dimuat dari URL itu.');
+    test.src = url;
+  });
+
+  bgDim.addEventListener('input', () => {
+    bgDimValue = Number(bgDim.value);
+    bgDimVal.textContent = bgDimValue + '%';
+    renderBackground();
+  });
+  bgDim.addEventListener('change', saveBackground);
+
+  bgRemove.addEventListener('click', () => {
+    bgImageValue = null;
+    bgFile.value = '';
+    bgFileName.textContent = 'Pilih gambar dari galeri…';
+    bgUrl.value = '';
+    renderBackground();
+    saveBackground();
+    setBgStatus('Background dihapus.');
+  });
+
+  bgFab.addEventListener('click', (e) => {
+    e.stopPropagation();
+    bgPanel.classList.toggle('open');
+  });
+  bgClose.addEventListener('click', () => bgPanel.classList.remove('open'));
+  document.addEventListener('click', (e) => {
+    if (bgPanel.classList.contains('open') &&
+        !bgPanel.contains(e.target) &&
+        !bgFab.contains(e.target)) {
+      bgPanel.classList.remove('open');
+    }
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') bgPanel.classList.remove('open');
+  });
+
+  (function initBackground() {
+    try {
+      const savedImg = localStorage.getItem(BG_IMG_KEY);
+      const savedDim = localStorage.getItem(BG_DIM_KEY);
+      if (savedDim !== null && !isNaN(Number(savedDim))) {
+        bgDimValue = Number(savedDim);
+        bgDim.value = bgDimValue;
+      }
+      bgDimVal.textContent = bgDimValue + '%';
+      if (savedImg) bgImageValue = savedImg;
+    } catch (e) {}
+    renderBackground();
+  })();
 
   go(1);
   runSplash();
